@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/codenames-pictures-duet/static/css/main.941615ba.css",
+    "main.js": "/codenames-pictures-duet/static/js/main.419ab980.js",
+    "index.html": "/codenames-pictures-duet/index.html",
+    "main.941615ba.css.map": "/codenames-pictures-duet/static/css/main.941615ba.css.map",
+    "main.419ab980.js.map": "/codenames-pictures-duet/static/js/main.419ab980.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.941615ba.css",
+    "static/js/main.419ab980.js"
+  ]
+}
