@@ -6,6 +6,29 @@
   transition: transform 0.2s;
 }
 
+.card.disabled {
+  cursor: not-allowed;
+}
+
+.card.disabled:hover {
+  transform: none;
+}
+
+/* Ensure cards are clickable */
+.card {
+  position: relative;
+  z-index: 1;
+}
+
+.card:not(.disabled) {
+  cursor: pointer;
+}
+
+.card.disabled {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
 .card:hover {
   transform: scale(1.05);
 }

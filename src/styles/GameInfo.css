@@ -90,3 +90,21 @@
     max-width: 200px;
   }
 }
+
+/* Add to existing GameInfo.css */
+.player.is-me {
+  box-shadow: 0 0 0 3px #667eea;
+}
+
+.connection-status {
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.connection-status.connected {
+  color: #4ecdc4;
+}
+
+.connection-status.disconnected {
+  color: #ff6b6b;
+}

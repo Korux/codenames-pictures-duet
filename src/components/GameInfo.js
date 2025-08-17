@@ -1,33 +1,33 @@
 import React from 'react';
 import '../styles/GameInfo.css';
 
-const GameInfo = ({ currentPlayer, scores, onReset, gameStarted, onStart }) => {
+const GameInfo = ({ currentPlayer, players, playerNumber, onReset, gameStarted }) => {
+  const sortedPlayers = players.sort((a, b) => a.number - b.number);
+  
   return (
     <div className="game-info">
-      {!gameStarted ? (
-        <button className="start-button" onClick={onStart}>
-          Start Game
-        </button>
-      ) : (
-        <>
-          <div className="player-info">
-            <div className={`player player1 ${currentPlayer === 1 ? 'active' : ''}`}>
-              <h3>Player 1</h3>
-              <p className="score">{scores.player1}</p>
-            </div>
-            <div className="current-turn">
-              <p>Current Turn</p>
-              <p className="turn-indicator">Player {currentPlayer}</p>
-            </div>
-            <div className={`player player2 ${currentPlayer === 2 ? 'active' : ''}`}>
-              <h3>Player 2</h3>
-              <p className="score">{scores.player2}</p>
+      <div className="player-info">
+        {sortedPlayers.map(player => (
+          <div 
+            key={player.id} 
+            className={`player player${player.number} ${currentPlayer === player.number ? 'active' : ''} ${player.number === playerNumber ? 'is-me' : ''}`}
+          >
+            <h3>
+              Player {player.number}
+              {player.number === playerNumber && ' (You)'}
+            </h3>
+            <p className="score">{player.score}</p>
+            <div className={`connection-status ${player.connected ? 'connected' : 'disconnected'}`}>
+              {player.connected ? '● Online' : '○ Offline'}
             </div>
           </div>
-          <button className="reset-button" onClick={onReset}>
-            Reset Game
-          </button>
-        </>
+        ))}
+      </div>
+      
+      {gameStarted && (
+        <button className="reset-button" onClick={onReset}>
+          New Game
+        </button>
       )}
     </div>
   );
